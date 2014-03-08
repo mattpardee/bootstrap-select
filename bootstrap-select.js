@@ -101,7 +101,7 @@
                 '<div class="btn-group bootstrap-select' + multiple + inputGroup + '">' +
                     '<button type="button" class="btn dropdown-toggle selectpicker" data-toggle="dropdown"'+ autofocus +'>' +
                         '<span class="filter-option pull-left"></span>&nbsp;' +
-                        '<img class="caret" src="/images/edmodo-select-dropdown-arrow-retina.png" width="10" />' +
+                        '<img class="edmodo-caret" src="/images/select-dropdown-arrow-retina.png" width="10" />' +
                     '</button>' +
                     '<div class="dropdown-menu open">' +
                         header +
