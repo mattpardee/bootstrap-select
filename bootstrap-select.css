@@ -77,6 +77,10 @@
     width: 100%;
     float: left;
     text-align: left;
+    padding-right: 23px;
+    text-align: left;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 .bootstrap-select.btn-group .btn .caret {
