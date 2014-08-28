@@ -16,7 +16,13 @@
 
     var Selectpicker = function(element, options, e) {
         if (e) {
-            e.stopPropagation();
+            if (typeof e.stopPropagation === "function") {
+                e.stopPropagation();
+            }
+            else if (typeof window !== 'undefined' && window.event) {
+                window.event.cancelBubble = true;
+            }
+
             e.preventDefault();
         }
         this.$element = $(element);
