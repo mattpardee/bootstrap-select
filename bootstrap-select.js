@@ -23,12 +23,7 @@
                 window.event.cancelBubble = true;
             }
 
-            if (typeof e.preventDefault !== 'undefined') {
-                e.preventDefault();
-            }
-            else {
-                e.returnValue = false;
-            }
+            e.preventDefault ? e.preventDefault() : e.returnValue = false;
         }
         this.$element = $(element);
         this.$newElement = null;
@@ -74,7 +69,7 @@
             if (id !== undefined) {
                 this.$button.attr('data-id', id);
                 $('label[for="' + id + '"]').click(function(e) {
-                    e.preventDefault();
+                    e.preventDefault ? e.preventDefault() : e.returnValue = false;
                     that.$button.focus();
                 });
             }
@@ -538,7 +533,7 @@
                     e.stopPropagation();
                 }
 
-                e.preventDefault();
+                e.preventDefault ? e.preventDefault() : e.returnValue = false;
 
                 //Dont run if we have been disabled
                 if (!that.isDisabled() && !$(this).parent().hasClass('disabled')) {
@@ -614,7 +609,7 @@
 
             this.$menu.on('click', 'li.disabled a, li dt, li .div-contain, .popover-title, .popover-title :not(.close)', function(e) {
                 if (e.target == this) {
-                    e.preventDefault();
+                    e.preventDefault ? e.preventDefault() : e.returnValue = false;
                     e.stopPropagation();
                     if (!that.options.liveSearch) {
                         that.$button.focus();
@@ -640,7 +635,7 @@
                     that.$button.focus();
                 }
                 
-                e.preventDefault();
+                e.preventDefault ? e.preventDefault() : e.returnValue = false;
                 e.stopPropagation();
                 
                 if ($(this).is('.bs-select-all')) {
@@ -774,7 +769,7 @@
             
             if (that.options.liveSearch) {
                 if (/(^9$|27)/.test(e.keyCode) && isActive && that.$menu.find('.active').length === 0) {
-                    e.preventDefault();
+                    e.preventDefault ? e.preventDefault() : e.returnValue = false;
                     that.$menu.parent().removeClass('open');
                     that.$button.focus();
                 }
@@ -833,7 +828,7 @@
                 if (!that.options.liveSearch) {
                     $items.eq(index).focus();
                 } else {
-                    e.preventDefault();
+                    e.preventDefault ? e.preventDefault() : e.returnValue = false;
                     if (!$this.is('.dropdown-toggle')) {
                         $items.removeClass('active');
                         $items.eq(index).addClass('active').find('a').focus();
@@ -874,7 +869,7 @@
 
             // Select focused option if "Enter", "Spacebar", "Tab" are pressed inside the menu.
             if (/(13|32|^9$)/.test(e.keyCode) && isActive) {
-                if (!/(32)/.test(e.keyCode)) e.preventDefault();
+                if (!/(32)/.test(e.keyCode)) {e.preventDefault ? e.preventDefault() : e.returnValue = false; }
                 if (!that.options.liveSearch) {
                     $(':focus').click();
                 } else if (!/(32)/.test(e.keyCode)) {
