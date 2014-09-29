@@ -23,7 +23,12 @@
                 window.event.cancelBubble = true;
             }
 
-            e.preventDefault();
+            if (typeof e.preventDefault !== 'undefined') {
+                e.preventDefault();
+            }
+            else {
+                e.returnValue = false;
+            }
         }
         this.$element = $(element);
         this.$newElement = null;
